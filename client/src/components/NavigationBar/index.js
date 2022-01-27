@@ -62,12 +62,12 @@ export const NavigationBar = () => {
           ) : (
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ml-auto">
-                <Nav.Link href="/signin">
+                {/* <Nav.Link href="/signin">
                   <Navbar.Text>Sign In</Navbar.Text>
                 </Nav.Link>
                 <Nav.Link href="/register">
                   <Navbar.Text>Register</Navbar.Text>
-                </Nav.Link>
+                </Nav.Link> */}
               </Nav>
             </Navbar.Collapse>
           )}

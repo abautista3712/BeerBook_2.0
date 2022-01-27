@@ -52,23 +52,23 @@ function App() {
 
   return (
     <div className="wrapper">
-      <AuthContext.Provider value={{ isAuthenticated: true }}>
-        {/* <NavigationBar /> */}
-        <Router>
-          <Switch>
-            <Route exact path="/register" component={Register} />
-            <Route
-              exact
-              path="/signin"
-              render={(props) => <SignIn {...props} />}
-            />
-            <Route exact path="/" component={SignIn} />
-            <PrivateRoute exact path="/browse" component={BrowseBeers} />
-            <PrivateRoute exact path="/custom" component={CustomBeer} />
-            <PrivateRoute exact path="/userprofile" component={UserProfile} />
-          </Switch>
-        </Router>
-      </AuthContext.Provider>
+      {/* <AuthContext.Provider value={{ isAuthenticated: true }}> */}
+      {/* <NavigationBar /> */}
+      <Router>
+        <Switch>
+          <Route exact path="/register" component={Register} />
+          <Route
+            exact
+            path="/signin"
+            render={(props) => <SignIn {...props} />}
+          />
+          <Route exact path="/" component={BrowseBeers} />
+          <Route exact path="/browse" component={BrowseBeers} />
+          <Route exact path="/custom" component={CustomBeer} />
+          <Route exact path="/userprofile" component={UserProfile} />
+        </Switch>
+      </Router>
+      {/* </AuthContext.Provider> */}
     </div>
   );
 }

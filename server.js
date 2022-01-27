@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3001;
 const beersRouter = require("./routes/beers");
 const apiRoutes = require("./routes/apiRoutes");
 const session = require("express-session");
-const passport = require("passport");
+// const passport = require("passport");
 const dotenv = require("dotenv");
 
 // Define middleware here
@@ -24,8 +24,8 @@ app.use(
 );
 
 // Passport init
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactbeers", {
@@ -33,6 +33,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactbeers", {
   useNewUrlParser: true,
   useCreateIndex: true,
 });
+
 const connection = mongoose.connection;
 connection.once("open", function () {
   console.log("MongoDB database connection established successfully");
