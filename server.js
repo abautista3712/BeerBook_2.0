@@ -7,12 +7,11 @@ const beersRouter = require("./routes/beers");
 const apiRoutes = require("./routes/apiRoutes");
 const session = require("express-session");
 // const passport = require("passport");
-const dotenv = require("dotenv");
+require("dotenv").config();
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-require("dotenv").config();
 
 // Express Session
 app.use(
@@ -28,11 +27,13 @@ app.use(
 // app.use(passport.session());
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactbeers", {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-  useCreateIndex: true,
-});
+mongoose
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/reactbeers", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  })
+  .catch((err) => console.log(err));
 
 const connection = mongoose.connection;
 connection.once("open", function () {

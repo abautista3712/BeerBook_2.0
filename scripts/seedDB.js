@@ -30,7 +30,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactbeers");
 
 const userSeed = [
   {
-    username:"Alice",
+    username: "Alice",
     password: "wonderland",
     email: "rabbithole@yahoo.com",
     name: "Alice Margatroid",
@@ -41,7 +41,7 @@ const userSeed = [
         beerStyle: "Unusual",
         abv: 40,
         shortDesc: "A very merry un-birthday!",
-        beerCategory: "Fizzy"
+        beerCategory: "Fizzy",
       },
       {
         picture: "",
@@ -49,12 +49,12 @@ const userSeed = [
         beerStyle: "Mysterious",
         abv: 30,
         shortDesc: "Riddles and riddles!",
-        beerCategory: "Foamy"
-      }
-    ]
+        beerCategory: "Foamy",
+      },
+    ],
   },
   {
-    username:"Bob",
+    username: "Bob",
     password: "builder",
     email: "wecanfixit@google.com",
     name: "Bob the Builder",
@@ -65,7 +65,7 @@ const userSeed = [
         beerStyle: "Tanuki",
         abv: 60,
         shortDesc: "Very good, very good!",
-        beerCategory: "Real Estate"
+        beerCategory: "Real Estate",
       },
       {
         picture: "",
@@ -73,20 +73,19 @@ const userSeed = [
         beerStyle: "Kitsune",
         abv: 45,
         shortDesc: "Thanks, cuz!",
-        beerCategory: "Forgery"
-      }
-    ]
-  }
+        beerCategory: "Forgery",
+      },
+    ],
+  },
 ];
 //seeding user data
 db.UserData.remove({}) //clear database
   .then(() => db.UserData.collection.insertMany(userSeed))
-  .then(data => {
+  .then((data) => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
   })
-  .catch(err => {
+  .catch((err) => {
     console.error(err);
     process.exit(1);
   });
-

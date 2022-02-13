@@ -20,22 +20,23 @@ function BrowseBeerCard(beer) {
   const handlePlusButton = (event) => {
     event.preventDefault();
     console.log("test handlePlusButton");
-    API.getUser().then((res) => {
-      console.log(res);
-      let user = res.data[0];
-      // console.log(user);
-      // console.log(converted_beer);
-      user.beerCollection.push(converted_beer);
-      API.addBeer(user).catch((err) => console.log(err));
-    });
+    // API.getUser().then((res) => {
+    //   console.log(res);
+    //   let user = res.data[0];
+    //   // console.log(user);
+    //   // console.log(converted_beer);
+    //   user.beerCollection.push(converted_beer);
+    //   API.addBeer(user).catch((err) => console.log(err));
+    // });
     //update the current user with the new beer
 
-    // API.getCurrentUserData(current_user).then((res) => {
-    // console.log(res.data[0]);
-    // var updated_user_data = res.data[0];
-    // updated_user_data.beerCollection.push(converted_beer);
-    // API.addBrowsedBeer(updated_user_data).catch((err) => console.log(err));
-    // });
+    const current_user = "Alice";
+    API.getCurrentUserData(current_user).then((res) => {
+      console.log(res.data[0]);
+      var updated_user_data = res.data[0];
+      updated_user_data.beerCollection.push(converted_beer);
+      API.addBrowsedBeer(updated_user_data).catch((err) => console.log(err));
+    });
   };
 
   return (
