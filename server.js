@@ -46,12 +46,12 @@ app.use("/api", apiRoutes);
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/build")));
-  app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "index.html"));
+  app.get("/*", function (req, res) {
+    res.sendFile(path.join(__dirname, "build", "index.html"));
   });
 } else {
   app.use(express.static(path.join(__dirname, "/client/public")));
-  app.get("/", function (req, res) {
+  app.get("/*", function (req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
   });
 }
