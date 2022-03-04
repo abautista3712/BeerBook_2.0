@@ -56,13 +56,6 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-// Send every request to the React app
-// Define any API routes before this runs
-// app.get("/", function (req, res) {
-//   console.log("calling default route");
-//   res.sendFile(path.join(__dirname, "build", "index.html"));
-// });
-
 app.listen(PORT, function () {
   console.log(`Server is running on PORT: ${PORT}!`);
 });
